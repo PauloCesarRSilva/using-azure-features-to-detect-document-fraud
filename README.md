@@ -7,7 +7,7 @@ A project showcasing how to use Azure Document Intelligence to detect frauds in 
 Resources you have to create:
 * Document intelligence
 * Storage account
-  * When creating the resouce, set the primary resouce as Azure Files
+  * When creating the resouce, set the `primary service` as `Azure Files`
   * When creation is done, allow `Allow Blob anonymous access` going to `Settings > Configuration` and set this option as `Enabled`
 
 # Running the project (vscode or any preferred editor)
