@@ -1,9 +1,22 @@
-import os
 from azure.storage.blob import BlobServiceClient
 import streamlit as st
 from utils.Config import Config
 
-def upload_blob(file, file_name):
+def upload_blob(file:str, file_name:str):
+  """
+  Upload a file to a blob storage.
+  
+  Parameters
+  ----------
+  file : str
+    a path of the file.
+  file_name : str
+    the name of the file.
+
+  Returns
+  -------
+  the url of the file uploaded.
+  """
   try:
     if Config.STORAGE_CONNECTION_STRING is None or Config.CONTAINER_NAME is None:
       st.error("Error retriving connection parameters. Please Check if they are not empty or if there is a typo")

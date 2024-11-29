@@ -3,7 +3,21 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeDocumentRequest
 from utils.Config import Config
 
-def analyze_credit_card(card_url):
+def analyze_credit_card(card_url:str):
+  """
+    
+  Analyse the credit card image based on the input.
+      
+  Parameters
+  ----------
+  card_url : str
+    The path of the object.
+    
+  Returns
+  -------
+  dict
+    The summary of the analysis.
+  """
   try:
     credential = AzureKeyCredential(Config.KEY)
     document = DocumentIntelligenceClient(Config.ENDPOINT, credential)

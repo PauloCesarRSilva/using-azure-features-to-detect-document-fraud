@@ -3,6 +3,10 @@ from services.blob_service import upload_blob
 from services.credit_card_service import analyze_credit_card
 
 def configure_interface():
+  """
+  Set up a simple front to upload a file.
+  """
+
   st.title("Upload your file")
   uploaded_file = st.file_uploader("Choose your file", type=["png", "jpg", "jpeg"])
 
@@ -17,7 +21,22 @@ def configure_interface():
     else:
       st.write(f"Error on sending the file {file_name}.")
 
-def show_image_and_validation(blob_url, credit_card_info):
+def show_image_and_validation(blob_url:str, credit_card_info:str):
+  """
+    Return the result of the validation
+
+    Parameters
+    ----------
+    blob_url : str
+        The blob storage url of the uploaded file.
+    credit_card_info : str
+        The analysis of the uploaded credit card.
+
+    Returns
+    -------
+    None.
+
+  """
   st.image(blob_url, caption="Image sent", use_column_width=True)
   st.write("Validation results")
   if credit_card_info and credit_card_info["card_name"]:
